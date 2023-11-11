@@ -1,0 +1,17 @@
+name: echo_on_push # The Name of the action
+
+on: # Does the job on a specific event
+  push: # The specific event is push
+    branches: # specifies the branch
+      - master # is applied on the "master" branch
+
+jobs: # The job to do when pushed in the master branch
+  build:
+    runs-on: ubuntu-latest # The operating system it will be running on will be the lastest ubuntu version
+
+    steps: # Specifies the steps that will be executed in the job
+    - name: checkout_repository # The name for checking out the repository step
+      uses: actions/checkout@v2 # Uses the actions/checkout action to perform the checkout
+
+    - name: echo_push # The name of step to echo on push
+      run: echo "Successfully pushed" # Echoes a string saying that the push was successful
